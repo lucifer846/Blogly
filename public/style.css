@@ -1,0 +1,27 @@
+.recent-blogs-h {
+    font-family:cursive;
+}
+.blog-title-h3 {
+    text-align: center;
+    margin-top: 2rem;
+    font-family:'Courier New', Courier, monospace;
+}
+.create-blog-container {
+    max-width: 50%;
+    margin:auto;
+}
+.create-blog-container textarea{
+    border:2px solid lightseagreen;
+}
+.create-blog-container input{
+    border:2px solid lightseagreen;
+    width: 60%;
+    margin:auto;
+}
+.create-blog-container button{
+    display: block;
+    margin:auto;
+    background-color:lightgreen;
+    border-radius:10%
+
+}
