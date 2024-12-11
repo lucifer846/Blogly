@@ -10,10 +10,10 @@
 <body>
     <div>
         <%- include("./partials/navbar") %>
-        <h2 class="recent-blogs-h my-4 mx-3">Recent Blogs</h2>
+        <h2 class="recent-blogs-h my-4 mx-3"><%= pageHeading %></h2>
         <%- include("./partials/recent-blogs") %>
         <div class="recent-blogs">
-            <% blogs.forEach(blog=>{%>
+            <% blogs.reverse().forEach(blog=>{%>
                 <a href="/blogs/<%= blog._id %>" class="recent-blogs-heading">
                 <h3><%= blog.title  %></h3>
                 </a> 

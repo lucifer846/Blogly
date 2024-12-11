@@ -4,7 +4,7 @@ const Blog = require('../models/blog')
 
 router.get('/', (req,res)=>{
     Blog.find()
-    .then(result=>{res.render('index', {blogs:result})})
+    .then(result=>{res.render('index', {blogs:result, pageHeading:"Recent Blogs"})})
 })
 router.get('/create-blog', (req,res)=>{
 res.render('create-blog')
@@ -16,6 +16,12 @@ router.post('/', (req, res)=>{
     .then(result=>{
         res.redirect('/blogs')
     })
+})
+router.post('/search', (req, res)=>{
+    const searchText = req.body.search
+    Blog.find({ title: { $regex: searchText, $options: 'i' } })
+        .then(result => res.render('index', { blogs: result , pageHeading:"Search Results"}))
+        .catch(err => console.error(err));
 })
 router.delete('/:id', (req,res)=>{
     Blog.findByIdAndDelete(req.params.id)
