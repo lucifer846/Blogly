@@ -1,5 +1,36 @@
 .recent-blogs-h {
     font-family:cursive;
+    color: rgb(38, 1, 39);
+}
+.delete-btn {
+    position: absolute;
+    top:90px;
+    left:80px;
+}
+.blog-details-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+
+.recent-blogs a {
+    width:fit-content;
+    display: block;
+    padding-left:25px;
+    color: rgb(94, 31, 113)
+}
+.recent-blogs a:hover{
+    transition-duration: 200ms;
+    color: hotpink;
+    display: flex;
+    border-left: 6px solid  crimson ;
+    padding-left: 30px;
+}
+.recent-blogs p{
+    padding-left: 30px;
+
 }
 .blog-title-h3 {
     text-align: center;
