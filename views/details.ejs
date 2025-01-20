@@ -9,30 +9,42 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 </head>
 <body>
-    <%- include('./partials/navbar') %>
+    <%- include('./partials/navbar') %> <!-- Including the navbar partial -->
+
     <div class="blog-details-container">
         <h1>
-            <%= blog.title %>
+            <%= blog.title %> <!-- Rendering the blog title -->
         </h1>
         <p>
-            <%= blog.text %>
+            <%= blog.text %> <!-- Rendering the blog text -->
         </p>
     </div>
+
     <div class="delete-btn">
-        <button class="delete-button" onclick="delete_func()" data-doc="<%= blog._id %>">Delete</button>
+        <button class="delete-button" onclick="delete_func()" data-doc="<%= blog._id %>">Delete</button> <!-- Delete button with blog ID in data attribute -->
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous">
     </script>   
-    <script> function delete_func(){
-        const trash_btn = document.querySelector('.delete-button')
-        const endpoint = `/blogs/${trash_btn.dataset.doc}`
-        fetch(endpoint, {
-            method:'DELETE'
-        })
-        .then((response)=>{return response.json()})
-        .then(data=>{window.location.href=data.redirect})
-    }   </script>
+
+    <script>
+        // Function to handle the delete action
+        function delete_func() {
+            const trash_btn = document.querySelector('.delete-button'); // Selecting the delete button
+            const endpoint = `/blogs/${trash_btn.dataset.doc}`; // Constructing the delete endpoint using the blog ID from the data attribute
+
+            // Sending a DELETE request to the server
+            fetch(endpoint, {
+                method: 'DELETE' // Setting the request method to DELETE
+            })
+            .then(response => response.json()) // Parsing the response as JSON
+            .then(data => {
+                window.location.href = data.redirect; // Redirecting to the specified URL in the response
+            })
+            .catch(err => console.error(err)); // Logging any errors
+        }
+    </script>
 </body>
-</html> 
+</html>
