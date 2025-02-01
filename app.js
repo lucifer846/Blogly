@@ -5,7 +5,7 @@ const blogRoutes = require('./routes/blogRoutes'); // Importing blog routes from
 const mongoose = require('mongoose'); // Importing Mongoose for MongoDB interaction
 
 // MongoDB connection string (Replace with your actual credentials for security reasons)
-const dbURI = "mongodb+srv://saurabh:ConorMcgregor@nodejscluster.ns38w.mongodb.net/Blogly?retryWrites=true&w=majority&appName=NodejsCluster";
+const dbURI = "mongodb+srv://<user>:<password>@nodejscluster.ns38w.mongodb.net/Blogly?retryWrites=true&w=majority&appName=NodejsCluster";
 
 // Connecting to MongoDB using Mongoose
 mongoose.connect(dbURI)
